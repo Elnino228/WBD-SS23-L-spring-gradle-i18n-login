@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${messageSource.getMessage('login.title',null,locale)}"></title>
+</head>
+<body>
+<h1 th:text="${messageSource.getMessage('login.heading',null,locale)}"></h1>
+Language: <a href="?lang=en">English</a> | <a href="?lang=haw">Hawaii</a>
+<form th:action="@{/}" th:object="${login}" method="post">
+    <table>
+        <tr>
+            <td th:text="${messageSource.getMessage('login.username_label',null,locale)}"></td>
+            <td><input type="text" th:field="*{userName}"/></td>
+        </tr>
+        <tr>
+            <td th:text="${messageSource.getMessage('login.password_label',null,locale)}"></td>
+            <td><input type="password" th:field="*{password}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" th:value="${messageSource.getMessage('login.submit_label',null,locale)}"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
